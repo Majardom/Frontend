@@ -1,0 +1,29 @@
+<div *ngFor="let film of films"  style="margin-bottom: 20px;">
+    <div>Назва: {{film.name}}</div>
+    <div>Рік: {{film.year}}</div>
+    <div>Продюсер: {{film.producer}} </div>
+    Актори:
+    <div *ngFor="let actor of film.actors">
+        <div>Ім'я: {{actor.name}}</div>
+        <div>Персонаж: {{actor.character}}</div>
+    </div>
+</div>
+
+<div style="margin-bottom: 20px;">
+    <div>Назва: <input [(ngModel)]="name"> </div>
+    <div>Рік: <input type="number" [(ngModel)]="year"> </div>
+    <div>Продюсер:  <input [(ngModel)]="producer"> </div>
+    <button (click)="createFilm()">Створити</button>
+</div>
+
+<select (change)="onChange($event.target.value)">
+    <option key="empty"></option>
+    <option *ngFor="let film of films" key="film.name">{{film.name}}</option>
+</select>
+
+<div>
+    <div>Назва: <input [(ngModel)]="editName"> </div>
+    <div>Рік: <input type="number" [(ngModel)]="editYear"> </div>
+    <div>Продюсер:  <input [(ngModel)]="editProducer"> </div>
+    <button (click)="editFilm()">Редагувати</button>
+</div>
